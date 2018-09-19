@@ -14,8 +14,9 @@ import java.util.List;
 public class CommandHandlerImpl implements CommandHandler {
     private String COMMAND_PATH = "commands.";
     private static final String COMMAND_SUFFIX_NAME = "Command";
-
-    public BoatSimulatorController controller;
+    private String commandName;
+    private String[] data;
+    private BoatSimulatorController controller;
 
     public CommandHandlerImpl(BoatSimulatorController controller) {
         this.setContrller(controller);
@@ -28,8 +29,10 @@ public class CommandHandlerImpl implements CommandHandler {
         return commandName;
     }
 
-    public String ExecuteCommand(String commandName, List<String> parameters) throws DuplicateModelException, NonExistantModelException, RaceAlreadyExistsException, NoSetRaceException, InsufficientContestantsException {
+    public String ExecuteCommand(String commandName, String[] data) throws DuplicateModelException, NonExistantModelException, RaceAlreadyExistsException, NoSetRaceException, InsufficientContestantsException {
         try {
+            this.commandName = commandName;
+            this.data = data;
             String commandClassName = this.parseCommandName(commandName);
             Class<?> commandClass = Class.forName(COMMAND_PATH + commandClassName + COMMAND_SUFFIX_NAME);
             Constructor<?> declaredConstructor = commandClass.getDeclaredConstructor();
@@ -49,12 +52,8 @@ public class CommandHandlerImpl implements CommandHandler {
     }
 
     private <T> void injectDependencies(T command) throws IllegalAccessException {
-        Field[] commandFields = command
-                .getClass()
-                .getDeclaredFields();
-        Field[] handlerFields = this
-                .getClass()
-                .getDeclaredFields();
+        Field[] commandFields = command.getClass().getDeclaredFields();
+        Field[] handlerFields = this.getClass().getDeclaredFields();
 
         for (Field commandField : commandFields) {
             commandField.setAccessible(true);

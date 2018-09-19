@@ -44,7 +44,7 @@ public class Engine {
     public void interpretCommand(String commandName, String[] data) {
         try
         {
-            String commandResult = this.commandHandler.ExecuteCommand(commandName, Arrays.asList(data));
+            String commandResult = this.commandHandler.ExecuteCommand(commandName, data);
             System.out.println(commandResult);
         }
         catch (Exception ex)
