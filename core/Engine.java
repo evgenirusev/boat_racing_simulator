@@ -1,8 +1,6 @@
 package core;
 
-import contracts.BoatSimulatorController;
-import contracts.CommandHandler;
-import contracts.Race;
+import contracts.*;
 import database.BoatSimulatorDatabase;
 import exeptions.*;
 
@@ -13,14 +11,16 @@ import java.util.Scanner;
 import java.util.stream.Collectors;
 
 public class Engine {
-    private CommandHandlerImpl commandHandler;
+    private Reader reader;
+    private Writer writer;
+    private CommandHandler commandHandler;
 
-    public Engine(CommandHandlerImpl commandHandler)
+    public Engine(Reader reader , Writer writer, CommandHandlerImpl commandHandler)
     {
+        this.reader = reader;
+        this.writer = writer;
         this.commandHandler = commandHandler;
     }
-    
-    public CommandHandler getCommandHandler;
 
     public void Run()
     {

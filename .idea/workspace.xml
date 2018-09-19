@@ -2,23 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fa15f691-47ed-4fec-bbd6-b184fe2a6e27" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/contracts/Reader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/contracts/Writer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/io/ConsoleInputReader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/io/ConsoleOutputWriter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/contracts/IBoatSimulatorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/contracts/BoatSimulatorController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/contracts/ICommandHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/contracts/CommandHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/contracts/IModelable.java" beforeDir="false" afterPath="$PROJECT_DIR$/contracts/Modelable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/contracts/IRace.java" beforeDir="false" afterPath="$PROJECT_DIR$/contracts/Race.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/contracts/IRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/contracts/Repository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/BoatSimulatorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/BoatSimulatorControllerImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/CommandHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/CommandHandlerImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/Engine.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/Engine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/BoatSimulatorDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/database/BoatSimulatorDatabase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/Repository.java" beforeDir="false" afterPath="$PROJECT_DIR$/database/Repository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/JetEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/models/JetEngine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/MotorBoat.java" beforeDir="false" afterPath="$PROJECT_DIR$/models/MotorBoat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/Race.java" beforeDir="false" afterPath="$PROJECT_DIR$/models/Race.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/SterndriveEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/models/SterndriveEngine.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -38,23 +27,23 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="java" value="22" />
+          <entry key="java" value="26" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="22" />
+          <entry key="JAVA" value="26" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="9" />
-          <entry key="java" value="2" />
+          <entry key="java" value="117" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="2" />
+          <entry key="JAVA" value="117" />
           <entry key="PLAIN_TEXT" value="9" />
         </counts>
       </usages-collector>
@@ -65,12 +54,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="66" lean-forward="true" selection-start-line="66" selection-end-line="66" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="class#285:2271" />
-              </folding>
+            <state relative-caret-position="102">
+              <caret line="6" column="19" lean-forward="true" selection-start-line="6" selection-start-column="19" selection-end-line="6" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -78,12 +63,39 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/core/Engine.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="21" column="4" selection-start-line="21" selection-start-column="4" selection-end-line="21" selection-end-column="4" />
+            <state relative-caret-position="80">
+              <caret line="15" column="42" lean-forward="true" selection-start-line="15" selection-start-column="42" selection-end-line="15" selection-end-column="42" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/io/ConsoleInputReader.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="12" column="13" lean-forward="true" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
               <folding>
-                <element signature="e#439#440#0" expanded="true" />
-                <element signature="e#491#492#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/contracts/Writer.java">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/contracts/Reader.java">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/io/ConsoleOutputWriter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="9" column="17" lean-forward="true" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -97,6 +109,9 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/database/BoatSimulatorDatabase.java" />
+        <option value="$PROJECT_DIR$/contracts/Reader.java" />
+        <option value="$PROJECT_DIR$/io/ConsoleInputReader.java" />
+        <option value="$PROJECT_DIR$/io/ConsoleOutputWriter.java" />
         <option value="$PROJECT_DIR$/Main.java" />
         <option value="$PROJECT_DIR$/core/Engine.java" />
       </list>
@@ -109,8 +124,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1912" />
-    <option name="y" value="-8" />
+    <option name="x" value="1924" />
+    <option name="y" value="110" />
     <option name="width" value="1456" />
     <option name="height" value="876" />
   </component>
@@ -142,6 +157,11 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="core" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="src" type="b2602c69:ProjectViewProjectNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="io" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -153,13 +173,19 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1537353406280" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1537354063151" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../java_oop_advanced_softuni/src/open_closed_liskov_project/src/blobs" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Evgeni\IdeaProjects\boat_racing_simulator\src\contracts" />
+      <recent name="C:\Users\Evgeni\IdeaProjects\boat_racing_simulator\src" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -198,12 +224,12 @@
       <option name="presentableId" value="Default" />
       <updated>1537349285258</updated>
       <workItem from="1537349286607" duration="1360000" />
-      <workItem from="1537351658345" duration="1318000" />
+      <workItem from="1537351658345" duration="1974000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2678000" />
+    <option name="totallyTimeSpent" value="3334000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="-8" width="1456" height="876" extended-state="6" />
@@ -337,25 +363,40 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Main.java">
+    <entry file="file://$PROJECT_DIR$/contracts/Writer.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/contracts/Reader.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/io/ConsoleOutputWriter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="66" lean-forward="true" selection-start-line="66" selection-end-line="66" />
+        <state relative-caret-position="136">
+          <caret line="9" column="17" lean-forward="true" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/io/ConsoleInputReader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="13" lean-forward="true" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="class#285:2271" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="19" lean-forward="true" selection-start-line="6" selection-start-column="19" selection-end-line="6" selection-end-column="19" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/core/Engine.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="21" column="4" selection-start-line="21" selection-start-column="4" selection-end-line="21" selection-end-column="4" />
-          <folding>
-            <element signature="e#439#440#0" expanded="true" />
-            <element signature="e#491#492#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="80">
+          <caret line="15" column="42" lean-forward="true" selection-start-line="15" selection-start-column="42" selection-end-line="15" selection-end-column="42" />
         </state>
       </provider>
     </entry>
