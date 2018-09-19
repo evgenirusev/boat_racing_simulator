@@ -1,4 +1,4 @@
-package contracts;
+package contracts.controllers;
 
 import contracts.models.Race;
 import database.BoatSimulatorDatabase;

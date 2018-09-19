@@ -1,14 +1,15 @@
 package core;
 
 import Utility.Constants;
-import contracts.BoatSimulatorController;
+import contracts.controllers.BoatSimulatorController;
+import contracts.controllers.CommandHandler;
 import controllers.BoatSimulatorControllerImpl;
 import enumeration.EngineType;
 import exeptions.*;
 
 import java.util.List;
 
-public class CommandHandlerImpl implements contracts.CommandHandler {
+public class CommandHandlerImpl implements CommandHandler {
     public BoatSimulatorController controller;
 
     public CommandHandlerImpl(BoatSimulatorController controller) {

@@ -1,6 +1,6 @@
 package io;
 
-import contracts.Reader;
+import contracts.io.Reader;
 
 import java.io.BufferedReader;
 import java.io.IOException;

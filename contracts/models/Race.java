@@ -1,12 +1,11 @@
-package contracts;
+package contracts.models;
 
 import exeptions.DuplicateModelException;
 import models.MotorBoat;
 
 import java.util.List;
 
-public interface Race
-{
+public interface Race {
     int getDistance();
 
     int getWindSpeed ();

@@ -8,14 +8,14 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class Race implements contracts.models.Race {
+public class RaceImpl implements contracts.models.Race {
     private int distance;
     private int windSpeed;
-    private int oseanCurrentSpeed;
+    private int oceanCurrentSpeed;
     private Boolean allowsMotorBoats;
     private HashMap<String, MotorBoat> registeredBoats;
 
-    public Race(int distance, int windSpeed, int oceanCurrentSpeed, Boolean allowsMotorBoats) {
+    public RaceImpl(int distance, int windSpeed, int oceanCurrentSpeed, Boolean allowsMotorBoats) {
         this.setDistance(distance);
         this.setWindSpeed(windSpeed);
         this.setOseanCurrentSpeed(oceanCurrentSpeed);
@@ -43,11 +43,11 @@ public class Race implements contracts.models.Race {
     }
 
     public int getOceanCurrentSpeed() {
-        return oseanCurrentSpeed;
+        return oceanCurrentSpeed;
     }
 
     private void setOseanCurrentSpeed(int oseanCurrentSpeed) {
-        this.oseanCurrentSpeed = oseanCurrentSpeed;
+        this.oceanCurrentSpeed = oseanCurrentSpeed;
     }
 
     public Boolean getAllowsMotorboats() {

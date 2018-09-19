@@ -2,7 +2,8 @@ package controllers;
 
 import Utility.Constants;
 import contracts.Modelable;
-import contracts.Race;
+import contracts.controllers.BoatSimulatorController;
+import contracts.models.Race;
 import database.BoatSimulatorDatabase;
 import enumeration.EngineType;
 import exeptions.*;
@@ -13,7 +14,7 @@ import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import java.util.*;
 
-public class BoatSimulatorControllerImpl implements contracts.BoatSimulatorController {
+public class BoatSimulatorControllerImpl implements BoatSimulatorController {
     private LinkedHashMap<Double, MotorBoat> map;
     private BoatSimulatorDatabase database;
     private Race currentRace;

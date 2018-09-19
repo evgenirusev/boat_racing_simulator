@@ -1,4 +1,4 @@
-package contracts;
+package contracts.io;
 
 public interface Reader {
 

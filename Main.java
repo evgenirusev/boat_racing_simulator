@@ -1,7 +1,6 @@
-import contracts.BoatSimulatorController;
-import contracts.Race;
-import contracts.Reader;
-import contracts.Writer;
+import contracts.controllers.BoatSimulatorController;
+import contracts.io.Reader;
+import contracts.io.Writer;
 import controllers.BoatSimulatorControllerImpl;
 import core.CommandHandlerImpl;
 import core.Engine;

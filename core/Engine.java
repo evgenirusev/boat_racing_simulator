@@ -1,14 +1,10 @@
 package core;
 
-import contracts.*;
-import database.BoatSimulatorDatabase;
-import exeptions.*;
+import contracts.controllers.CommandHandler;
+import contracts.io.Reader;
+import contracts.io.Writer;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
-import java.util.Scanner;
-import java.util.stream.Collectors;
 
 public class Engine {
     private String data[];
@@ -36,18 +32,18 @@ public class Engine {
 
             data = userInput.split("\\\\");
 
-            String command = data[0];
+            String commandName = data[0];
 
             data = Arrays.stream(data).skip(1).toArray(String[]::new);
 
-            interpretCommand(command);
+            interpretCommand(commandName, data);
         }
     }
 
-    public void interpretCommand(String command) {
+    public void interpretCommand(String commandName, String[] data) {
         try
         {
-            String commandResult = this.commandHandler.ExecuteCommand(name, parameters);
+            String commandResult = this.commandHandler.ExecuteCommand(commandName, Arrays.asList(data));
             System.out.println(commandResult);
         }
         catch (Exception ex)

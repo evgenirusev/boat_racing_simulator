@@ -1,7 +1,7 @@
 package io;
 
 
-import contracts.Writer;
+import contracts.io.Writer;
 
 public class ConsoleOutputWriter implements Writer {
 
