@@ -1,12 +1,11 @@
 package models.boats;
 
-import com.sun.javafx.UnmodifiableArrayList;
 import models.JetEngine;
 
 import java.util.Collections;
 import java.util.List;
 
-public class PowerBoat extends AbstractBoat {
+public class PowerBoat extends BaseBoat {
     private List<JetEngine> engines;
 
     public PowerBoat(String model, int weight, List<JetEngine> engines) {

@@ -8,7 +8,6 @@ import database.BoatSimulatorDatabase;
 import enumeration.EngineType;
 import exeptions.*;
 import models.JetEngine;
-import models.MotorBoat;
 import models.SterndriveEngine;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 

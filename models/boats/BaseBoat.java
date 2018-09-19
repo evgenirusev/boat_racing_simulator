@@ -3,11 +3,11 @@ package models.boats;
 import Utility.Constants;
 import Utility.Validator;
 
-public abstract class AbstractBoat {
+public abstract class BaseBoat {
     private String model;
     private int weight;
 
-    public AbstractBoat(String model, int weight) {
+    public BaseBoat(String model, int weight) {
         this.model = model;
         this.weight = weight;
     }

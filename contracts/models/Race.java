@@ -1,7 +1,6 @@
 package contracts.models;
 
 import exeptions.DuplicateModelException;
-import models.MotorBoat;
 
 import java.util.List;
 

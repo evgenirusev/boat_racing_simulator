@@ -2,7 +2,6 @@ package database;
 
 import contracts.Modelable;
 import contracts.Repository;
-import models.MotorBoat;
 
 public class BoatSimulatorDatabase {
     Repository<MotorBoat> boats;

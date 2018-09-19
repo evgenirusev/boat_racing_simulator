@@ -1,13 +1,9 @@
 package models.boats;
 
-import Utility.Constants;
 import Utility.Validator;
-import contracts.Modelable;
 import contracts.models.Race;
 
-import java.util.List;
-
-public class RowBoat extends AbstractBoat {
+public class RowBoat extends BaseBoat {
     private int oars;
 
     public RowBoat(String model, int weight, int oars) {

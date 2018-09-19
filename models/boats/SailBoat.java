@@ -3,7 +3,7 @@ package models.boats;
 import Utility.Validator;
 import contracts.models.Race;
 
-public class SailBoat extends AbstractBoat {
+public class SailBoat extends BaseBoat {
     private int sailEfficiency;
 
     public SailBoat(String model, int weight, int sailEfficiency) {
