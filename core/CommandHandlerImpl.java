@@ -4,6 +4,7 @@ import annotations.Inject;
 import contracts.Executable;
 import contracts.controllers.BoatSimulatorController;
 import contracts.controllers.CommandHandler;
+import controllers.BoatSimulatorControllerImpl;
 import exeptions.*;
 
 import java.lang.reflect.Constructor;
@@ -16,9 +17,9 @@ public class CommandHandlerImpl implements CommandHandler {
     private static final String COMMAND_SUFFIX_NAME = "Command";
     private String commandName;
     private String[] data;
-    private BoatSimulatorController controller;
+    private BoatSimulatorControllerImpl controller;
 
-    public CommandHandlerImpl(BoatSimulatorController controller) {
+    public CommandHandlerImpl(BoatSimulatorControllerImpl controller) {
         this.setContrller(controller);
     }
 
@@ -75,7 +76,7 @@ public class CommandHandlerImpl implements CommandHandler {
         return this.controller;
     }
 
-    private void setContrller(BoatSimulatorController controller) {
+    private void setContrller(BoatSimulatorControllerImpl controller) {
         this.controller = controller;
     }
 }

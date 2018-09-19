@@ -13,7 +13,7 @@ public class Main {
     public static void main(String[] args) {
         Reader reader = new ConsoleInputReader();
         Writer writer = new ConsoleOutputWriter();
-        BoatSimulatorController ctrl = new BoatSimulatorControllerImpl();
+        BoatSimulatorControllerImpl ctrl = new BoatSimulatorControllerImpl();
         CommandHandlerImpl commandHandler = new CommandHandlerImpl(ctrl);
 
         Engine engine = new Engine(reader, writer, commandHandler);
