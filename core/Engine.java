@@ -11,6 +11,8 @@ import java.util.Scanner;
 import java.util.stream.Collectors;
 
 public class Engine {
+    private String data[];
+
     private Reader reader;
     private Writer writer;
     private CommandHandler commandHandler;
@@ -26,30 +28,31 @@ public class Engine {
     {
         while (true)
         {
-            Scanner scanner = new Scanner(System.in);
-            String line = scanner.nextLine();
-            String name = "";
-            List<String> parameters = new ArrayList<>();
+            String userInput = this.reader.readLine();
 
-            if (line.equals("End")) {
+            if (userInput.equals("End")) {
                 break;
             }
 
-            List<String> tokens = Arrays.asList(line.split("\\\\"));
-            name = tokens.get(0);
-            parameters = tokens.stream().skip(1).collect(Collectors.toList());
+            data = userInput.split("\\\\");
 
-            try
-            {
-                String commandResult = this.commandHandler.ExecuteCommand(name, parameters);
-                System.out.println(commandResult);
-            }
-            catch (Exception ex)
-            {
-                System.out.println(ex.getMessage());
-            }
+            String command = data[0];
 
-            line = scanner.nextLine();
+            data = Arrays.stream(data).skip(1).toArray(String[]::new);
+
+            interpretCommand(command);
+        }
+    }
+
+    public void interpretCommand(String command) {
+        try
+        {
+            String commandResult = this.commandHandler.ExecuteCommand(name, parameters);
+            System.out.println(commandResult);
+        }
+        catch (Exception ex)
+        {
+            System.out.println(ex.getMessage());
         }
     }
 }

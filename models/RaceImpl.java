@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class Race implements contracts.Race {
+public class Race implements contracts.models.Race {
     private int distance;
     private int windSpeed;
     private int oseanCurrentSpeed;

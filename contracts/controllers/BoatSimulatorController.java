@@ -1,5 +1,6 @@
 package contracts;
 
+import contracts.models.Race;
 import database.BoatSimulatorDatabase;
 import exeptions.*;
 
