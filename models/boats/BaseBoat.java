@@ -2,8 +2,9 @@ package models.boats;
 
 import Utility.Constants;
 import Utility.Validator;
+import contracts.models.Boat;
 
-public abstract class BaseBoat {
+public abstract class BaseBoat implements Boat {
     private String model;
     private int weight;
 

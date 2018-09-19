@@ -1,23 +1,22 @@
 package models.boats;
 
-import models.JetEngine;
-
+import contracts.models.BoatEngine;
 import java.util.Collections;
 import java.util.List;
 
 public class PowerBoat extends BaseBoat {
-    private List<JetEngine> engines;
+    private List<BoatEngine> engines;
 
-    public PowerBoat(String model, int weight, List<JetEngine> engines) {
+    public PowerBoat(String model, int weight, List<BoatEngine> engines) {
         super(model, weight);
         this.engines = engines;
     }
 
-    public List<JetEngine> getEngines() {
+    public List<BoatEngine> getEngines() {
         return Collections.unmodifiableList(engines);
     }
 
-    public void setEngines(List<JetEngine> engines) {
+    public void setEngines(List<BoatEngine> engines) {
         this.engines = engines;
     }
 }

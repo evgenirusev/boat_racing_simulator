@@ -2,27 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fa15f691-47ed-4fec-bbd6-b184fe2a6e27" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/factories/EngineFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/RaceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/engines/SterndriveEngine.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/contracts/controllers/BoatSimulatorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/contracts/controllers/BoatSimulatorController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/contracts/controllers/CommandHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/contracts/controllers/CommandHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/contracts/io/Reader.java" beforeDir="false" afterPath="$PROJECT_DIR$/contracts/io/Reader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/contracts/io/Writer.java" beforeDir="false" afterPath="$PROJECT_DIR$/contracts/io/Writer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/contracts/models/Boat.java" beforeDir="false" afterPath="$PROJECT_DIR$/contracts/models/Boat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/contracts/models/BoatEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/contracts/models/BoatEngine.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/contracts/models/Race.java" beforeDir="false" afterPath="$PROJECT_DIR$/contracts/models/Race.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controllers/BoatSimulatorControllerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/BoatSimulatorControllerImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/CommandHandlerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/CommandHandlerImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/Engine.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/Engine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/BoatSimulatorDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/database/BoatSimulatorDatabase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/io/ConsoleInputReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/io/ConsoleInputReader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/io/ConsoleOutputWriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/io/ConsoleOutputWriter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/MotorBoat.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/RaceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/models/RaceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/boats/AbstractBoat.java" beforeDir="false" afterPath="$PROJECT_DIR$/models/boats/AbstractBoat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/boats/AbstractMotorBoat.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/boats/BaseBoat.java" beforeDir="false" afterPath="$PROJECT_DIR$/models/boats/BaseBoat.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/boats/PowerBoat.java" beforeDir="false" afterPath="$PROJECT_DIR$/models/boats/PowerBoat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/boats/RowBoat.java" beforeDir="false" afterPath="$PROJECT_DIR$/models/boats/RowBoat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/boats/SailBoat.java" beforeDir="false" afterPath="$PROJECT_DIR$/models/boats/SailBoat.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/boats/Yacht.java" beforeDir="false" afterPath="$PROJECT_DIR$/models/boats/Yacht.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/engines/BaseEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/models/engines/BaseEngine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/engines/JetEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/models/engines/JetEngine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/engines/Sterndrive.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/races/RaceImpl.java" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -42,34 +38,102 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="java" value="60" />
+          <entry key="java" value="91" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="60" />
+          <entry key="JAVA" value="91" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="dummy" value="22" />
-          <entry key="java" value="1154" />
+          <entry key="dummy" value="42" />
+          <entry key="java" value="1784" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="1154" />
-          <entry key="PLAIN_TEXT" value="22" />
+          <entry key="JAVA" value="1784" />
+          <entry key="PLAIN_TEXT" value="42" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="272">
+              <caret line="16" column="65" selection-start-line="16" selection-start-column="65" selection-end-line="16" selection-end-column="65" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/controllers/BoatSimulatorControllerImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="59" column="24" selection-start-line="59" selection-start-column="24" selection-end-line="59" selection-end-column="24" />
+              <folding>
+                <element signature="e#6558#6559#0" expanded="true" />
+                <element signature="e#6585#6586#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/factories/EngineFactory.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="323">
+              <caret line="19" column="26" lean-forward="true" selection-start-line="19" selection-start-column="26" selection-end-line="19" selection-end-column="26" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/models/engines/BaseEngine.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="80">
+              <caret line="5" column="67" lean-forward="true" selection-start-line="5" selection-start-column="67" selection-end-line="5" selection-end-column="67" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#456#457#0" expanded="true" />
+                <element signature="e#491#492#0" expanded="true" />
+                <element signature="e#525#526#0" expanded="true" />
+                <element signature="e#558#559#0" expanded="true" />
+                <element signature="e#590#591#0" expanded="true" />
+                <element signature="e#618#619#0" expanded="true" />
+                <element signature="e#660#661#0" expanded="true" />
+                <element signature="e#694#695#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/models/engines/JetEngine.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="9" column="13" lean-forward="true" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -91,18 +155,28 @@
         <option value="$PROJECT_DIR$/contracts/Reader.java" />
         <option value="$PROJECT_DIR$/io/ConsoleInputReader.java" />
         <option value="$PROJECT_DIR$/io/ConsoleOutputWriter.java" />
-        <option value="$PROJECT_DIR$/Main.java" />
-        <option value="$PROJECT_DIR$/core/Engine.java" />
-        <option value="$PROJECT_DIR$/contracts/models/Race.java" />
         <option value="$PROJECT_DIR$/models/Race.java" />
-        <option value="$PROJECT_DIR$/models/RaceImpl.java" />
         <option value="$PROJECT_DIR$/models/MotorBoat.java" />
         <option value="$PROJECT_DIR$/models/boats/RowBoat.java" />
         <option value="$PROJECT_DIR$/models/boats/SailBoat.java" />
         <option value="$PROJECT_DIR$/models/boats/AbstractMotorBoat.java" />
         <option value="$PROJECT_DIR$/models/boats/AbstractBoat.java" />
-        <option value="$PROJECT_DIR$/models/boats/PowerBoat.java" />
         <option value="$PROJECT_DIR$/models/boats/Yacht.java" />
+        <option value="$PROJECT_DIR$/contracts/models/BoatEngine.java" />
+        <option value="$PROJECT_DIR$/models/boats/PowerBoat.java" />
+        <option value="$PROJECT_DIR$/models/engines/JetEngine.java" />
+        <option value="$PROJECT_DIR$/models/engines/Sterndrive.java" />
+        <option value="$PROJECT_DIR$/contracts/models/Boat.java" />
+        <option value="$PROJECT_DIR$/models/boats/BaseBoat.java" />
+        <option value="$PROJECT_DIR$/contracts/models/Race.java" />
+        <option value="$PROJECT_DIR$/models/races/RaceImpl.java" />
+        <option value="$PROJECT_DIR$/models/RaceImpl.java" />
+        <option value="$PROJECT_DIR$/Main.java" />
+        <option value="$PROJECT_DIR$/core/Engine.java" />
+        <option value="$PROJECT_DIR$/models/engines/BaseEngine.java" />
+        <option value="$PROJECT_DIR$/core/CommandHandlerImpl.java" />
+        <option value="$PROJECT_DIR$/factories/EngineFactory.java" />
+        <option value="$PROJECT_DIR$/controllers/BoatSimulatorControllerImpl.java" />
       </list>
     </option>
   </component>
@@ -136,22 +210,17 @@
             <path>
               <item name="src" type="b2602c69:ProjectViewProjectNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="contracts" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="src" type="b2602c69:ProjectViewProjectNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="controllers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="src" type="b2602c69:ProjectViewProjectNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="core" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="src" type="b2602c69:ProjectViewProjectNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="io" type="462c0819:PsiDirectoryNode" />
+              <item name="enumeration" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="src" type="b2602c69:ProjectViewProjectNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="factories" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="src" type="b2602c69:ProjectViewProjectNode" />
@@ -161,7 +230,14 @@
             <path>
               <item name="src" type="b2602c69:ProjectViewProjectNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Utility" type="462c0819:PsiDirectoryNode" />
+              <item name="models" type="462c0819:PsiDirectoryNode" />
+              <item name="boats" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="src" type="b2602c69:ProjectViewProjectNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="models" type="462c0819:PsiDirectoryNode" />
+              <item name="engines" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -174,7 +250,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1537360347655" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1537365299913" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../java_oop_advanced_softuni/src/open_closed_liskov_project/src/blobs" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -225,15 +301,16 @@
       <option name="presentableId" value="Default" />
       <updated>1537349285258</updated>
       <workItem from="1537349286607" duration="1360000" />
-      <workItem from="1537351658345" duration="7817000" />
+      <workItem from="1537351658345" duration="12756000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9177000" />
+    <option name="totallyTimeSpent" value="14116000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="-8" width="1456" height="876" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25358167" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -286,31 +363,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/CommandHandlerImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-595">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/exeptions/DuplicateModelException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/exeptions/InsufficientContestantsException.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/BoatSimulatorControllerImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
         </state>
       </provider>
     </entry>
@@ -328,23 +384,6 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/Engine.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-46">
-          <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
         </state>
       </provider>
     </entry>
@@ -369,40 +408,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/models/RaceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="731">
-          <caret line="49" column="51" lean-forward="true" selection-start-line="49" selection-start-column="51" selection-end-line="49" selection-end-column="51" />
-          <folding>
-            <element signature="e#825#826#0" expanded="true" />
-            <element signature="e#856#857#0" expanded="true" />
-            <element signature="e#1052#1053#0" expanded="true" />
-            <element signature="e#1084#1085#0" expanded="true" />
-            <element signature="e#1132#1133#0" expanded="true" />
-            <element signature="e#1174#1175#0" expanded="true" />
-            <element signature="e#1215#1216#0" expanded="true" />
-            <element signature="e#1255#1256#0" expanded="true" />
-            <element signature="e#1319#1320#0" expanded="true" />
-            <element signature="e#1377#1378#0" expanded="true" />
-            <element signature="e#1421#1422#0" expanded="true" />
-            <element signature="e#1460#1461#0" expanded="true" />
-            <element signature="e#1526#1527#0" expanded="true" />
-            <element signature="e#1582#1583#0" expanded="true" />
-            <element signature="e#1647#1648#0" expanded="true" />
-            <element signature="e#1690#1691#0" expanded="true" />
-            <element signature="e#2042#2043#0" expanded="true" />
-            <element signature="e#2120#2121#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/SterndriveEngine.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="7" column="1" lean-forward="true" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/contracts/controllers/CommandHandler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -417,24 +422,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/contracts/models/Race.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="7" column="22" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Utility/Validator.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/JetEngine.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
         </state>
       </provider>
     </entry>
@@ -477,39 +468,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/models/boats/PowerBoat.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#415#416#0" expanded="true" />
-            <element signature="e#425#426#0" expanded="true" />
-            <element signature="e#463#464#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Utility/Constants.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/boats/AbstractBoat.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="29" lean-forward="true" selection-start-line="16" selection-start-column="29" selection-end-line="16" selection-end-column="29" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#474#475#0" expanded="true" />
-            <element signature="e#508#509#0" expanded="true" />
-            <element signature="e#540#541#0" expanded="true" />
-            <element signature="e#568#569#0" expanded="true" />
-            <element signature="e#598#599#0" expanded="true" />
-            <element signature="e#627#628#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -534,6 +496,216 @@
             <element signature="e#2323#2324#0" expanded="true" />
             <element signature="e#2383#2384#0" expanded="true" />
             <element signature="e#2423#2424#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/contracts/models/BoatEngine.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/boats/PowerBoat.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="22" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/JetEngine.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/SterndriveEngine.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="7" column="1" lean-forward="true" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/contracts/models/Boat.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="23" lean-forward="true" selection-start-line="4" selection-start-column="23" selection-end-line="4" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/boats/BaseBoat.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="48" lean-forward="true" selection-start-line="6" selection-start-column="48" selection-end-line="6" selection-end-column="48" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/RaceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret lean-forward="true" selection-end-line="72" selection-end-column="1" />
+          <folding>
+            <element signature="e#825#826#0" expanded="true" />
+            <element signature="e#856#857#0" expanded="true" />
+            <element signature="e#1052#1053#0" expanded="true" />
+            <element signature="e#1084#1085#0" expanded="true" />
+            <element signature="e#1132#1133#0" expanded="true" />
+            <element signature="e#1174#1175#0" expanded="true" />
+            <element signature="e#1215#1216#0" expanded="true" />
+            <element signature="e#1255#1256#0" expanded="true" />
+            <element signature="e#1319#1320#0" expanded="true" />
+            <element signature="e#1377#1378#0" expanded="true" />
+            <element signature="e#1421#1422#0" expanded="true" />
+            <element signature="e#1460#1461#0" expanded="true" />
+            <element signature="e#1591#1592#0" expanded="true" />
+            <element signature="e#1647#1648#0" expanded="true" />
+            <element signature="e#2039#2040#0" expanded="true" />
+            <element signature="e#2112#2113#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/RaceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="89">
+          <caret line="48" column="5" lean-forward="true" selection-start-line="48" selection-start-column="5" selection-end-line="48" selection-end-column="5" />
+          <folding>
+            <element signature="e#856#857#0" expanded="true" />
+            <element signature="e#895#896#0" expanded="true" />
+            <element signature="e#858#859#0" expanded="true" />
+            <element signature="e#889#890#0" expanded="true" />
+            <element signature="e#1085#1086#0" expanded="true" />
+            <element signature="e#1117#1118#0" expanded="true" />
+            <element signature="e#1165#1166#0" expanded="true" />
+            <element signature="e#1207#1208#0" expanded="true" />
+            <element signature="e#1248#1249#0" expanded="true" />
+            <element signature="e#1288#1289#0" expanded="true" />
+            <element signature="e#1352#1353#0" expanded="true" />
+            <element signature="e#1410#1411#0" expanded="true" />
+            <element signature="e#1454#1455#0" expanded="true" />
+            <element signature="e#1493#1494#0" expanded="true" />
+            <element signature="e#1559#1560#0" expanded="true" />
+            <element signature="e#1615#1616#0" expanded="true" />
+            <element signature="e#1957#1958#0" expanded="true" />
+            <element signature="e#2030#2031#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/contracts/models/Race.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="33" lean-forward="true" selection-start-line="17" selection-start-column="33" selection-end-line="17" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/engines/SterndriveEngine.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="21" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="21" />
+          <folding>
+            <element signature="e#140#141#0" expanded="true" />
+            <element signature="e#194#195#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/exeptions/DuplicateModelException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/enumeration/EngineType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/Engine.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="20" column="45" selection-start-line="20" selection-start-column="45" selection-end-line="20" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/engines/JetEngine.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="9" column="13" lean-forward="true" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/engines/BaseEngine.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="5" column="67" lean-forward="true" selection-start-line="5" selection-start-column="67" selection-end-line="5" selection-end-column="67" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#456#457#0" expanded="true" />
+            <element signature="e#491#492#0" expanded="true" />
+            <element signature="e#525#526#0" expanded="true" />
+            <element signature="e#558#559#0" expanded="true" />
+            <element signature="e#590#591#0" expanded="true" />
+            <element signature="e#618#619#0" expanded="true" />
+            <element signature="e#660#661#0" expanded="true" />
+            <element signature="e#694#695#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/CommandHandlerImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="98">
+          <caret line="25" column="49" selection-start-line="25" selection-start-column="49" selection-end-line="25" selection-end-column="49" />
+          <folding>
+            <element signature="e#438#439#0" expanded="true" />
+            <element signature="e#483#484#0" expanded="true" />
+            <element signature="e#3464#3465#0" expanded="true" />
+            <element signature="e#3502#3503#0" expanded="true" />
+            <element signature="e#3571#3572#0" expanded="true" />
+            <element signature="e#3615#3616#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="65" selection-start-line="16" selection-start-column="65" selection-end-line="16" selection-end-column="65" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/factories/EngineFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="26" lean-forward="true" selection-start-line="19" selection-start-column="26" selection-end-line="19" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/BoatSimulatorControllerImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="59" column="24" selection-start-line="59" selection-start-column="24" selection-end-line="59" selection-end-column="24" />
+          <folding>
+            <element signature="e#6558#6559#0" expanded="true" />
+            <element signature="e#6585#6586#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -13,7 +13,7 @@ public interface Race {
 
     Boolean getAllowsMotorboats ();
 
-    void AddParticipant(MotorBoat boat) throws DuplicateModelException;
+    void AddParticipant(Boat boat) throws DuplicateModelException;
 
-    List<MotorBoat> GetParticipants();
+    List<Boat> GetParticipants();
 }

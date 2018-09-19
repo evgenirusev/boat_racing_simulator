@@ -1,4 +1,35 @@
 package models.engines;
 
-public class BaseEngine {
+import contracts.Modelable;
+import contracts.models.BoatEngine;
+
+public abstract class BaseEngine implements BoatEngine, Modelable {
+    private String model;
+    private int output;
+    private int displacement;
+    private int horsepower;
+
+    public BaseEngine(String model, int horsepower, int displacement) {
+        this.model = model;
+        this.displacement = displacement;
+        this.horsepower = horsepower;
+    }
+
+    public int getDisplacement() {
+        return displacement;
+    }
+
+    public int getHorsepower() {
+        return horsepower;
+    }
+
+    public String getModel() {
+        return model;
+    }
+
+    public void setModel(String model) {
+        this.model = model;
+    }
+
+    public abstract int getOutput();
 }

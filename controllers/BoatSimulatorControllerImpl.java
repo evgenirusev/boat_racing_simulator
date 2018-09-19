@@ -3,18 +3,22 @@ package controllers;
 import Utility.Constants;
 import contracts.Modelable;
 import contracts.controllers.BoatSimulatorController;
+import contracts.models.Boat;
 import contracts.models.Race;
+import core.Engine;
 import database.BoatSimulatorDatabase;
 import enumeration.EngineType;
 import exeptions.*;
-import models.JetEngine;
-import models.SterndriveEngine;
+import factories.EngineFactory;
+import models.boats.RowBoat;
+import models.engines.JetEngine;
+import models.engines.SterndriveEngine;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import java.util.*;
 
 public class BoatSimulatorControllerImpl implements BoatSimulatorController {
-    private LinkedHashMap<Double, MotorBoat> map;
+    private LinkedHashMap<Double, Boat> map;
     private BoatSimulatorDatabase database;
     private Race currentRace;
 
@@ -53,17 +57,17 @@ public class BoatSimulatorControllerImpl implements BoatSimulatorController {
     }
 
     public String CreateBoatEngine(String model, int horsepower, int displacement, EngineType engineType) throws DuplicateModelException {
-        Modelable engine;
-        switch (engineType) {
-            case Jet:
-                engine = new JetEngine(model, horsepower, displacement);
-                break;
-            case Sterndrive:
-                engine = new SterndriveEngine(model, horsepower, displacement);
-                break;
-            default:
-                throw new NotImplementedException();
-        }
+        Engine engine = EngineFactory.create(engineType.toString());
+//        switch (engineType) {
+//            case Jet:
+//                engine = EngineFactory.create(engineType.toString());
+//                break;
+//            case Sterndrive:
+//                engine = new SterndriveEngine(model, horsepower, displacement);
+//                break;
+//            default:
+//                throw new NotImplementedException();
+//        }
 
         this.database.getEngines().Add(engine);
         return String.format(
@@ -73,32 +77,32 @@ public class BoatSimulatorControllerImpl implements BoatSimulatorController {
                 displacement);
     }
 
-    public String CreateRowBoat(String model, int weight, int oars) throws DuplicateModelException {
-        MotorBoat boat = new MotorBoat(model, weight, 1, oars, 1, new ArrayList<JetEngine>(), new ArrayList<SterndriveEngine>(), false);
-        this.database.getBoats().Add(boat);
-        return String.format("Row boat with model %s registered successfully.", model);
-    }
-
-    public String CreateSailBoat(String model, int weight, int sailEfficiency) throws DuplicateModelException {
-        MotorBoat boat = new MotorBoat(model, weight, sailEfficiency, 1, 1, new ArrayList<JetEngine>(), new ArrayList<SterndriveEngine>(), true);
-        this.database.getBoats().Add(boat);
-        return String.format("Sail boat with model %s registered successfully.", model);
-    }
-
-    public String CreatePowerBoat(String model, int weight, String firstEngineModel, String secondEngineModel) throws NonExistantModelException, DuplicateModelException {
-        JetEngine firstEngine = (JetEngine) this.database.getEngines().GetItem(firstEngineModel);
-        SterndriveEngine secondEngine = (SterndriveEngine) this.database.getEngines().GetItem(secondEngineModel);
-        MotorBoat boat = new MotorBoat(model, weight, 1, 1, 1, Arrays.asList(firstEngine), Arrays.asList(secondEngine), false);
-        this.database.getBoats().Add(boat);
-        return String.format("Power boat with model %s registered successfully.", model);
-    }
-
-    public String CreateYacht(String model, int weight, String engineModel, int cargoWeight) throws NonExistantModelException, DuplicateModelException {
-        JetEngine engine = (JetEngine) this.database.getEngines().GetItem(engineModel);
-        MotorBoat boat = new MotorBoat(model, weight, 1, 1, cargoWeight, Arrays.asList(engine), new ArrayList<SterndriveEngine>(), false);
-        this.database.getBoats().Add(boat);
-        return String.format("Yacht with model %s registered successfully.", model);
-    }
+//    public String CreateRowBoat(String model, int weight, int oars) throws DuplicateModelException {
+//        Boat boat = new RowBoat(model, weight, 1, new ArrayList<Engine>(), new ArrayList<SterndriveEngine>(), false);
+//        this.database.getBoats().Add(boat);
+//        return String.format("Row boat with model %s registered successfully.", model);
+//    }
+//
+//    public String CreateSailBoat(String model, int weight, int sailEfficiency) throws DuplicateModelException {
+//        MotorBoat boat = new MotorBoat(model, weight, sailEfficiency, 1, 1, new ArrayList<JetEngine>(), new ArrayList<SterndriveEngine>(), true);
+//        this.database.getBoats().Add(boat);
+//        return String.format("Sail boat with model %s registered successfully.", model);
+//    }
+//
+//    public String CreatePowerBoat(String model, int weight, String firstEngineModel, String secondEngineModel) throws NonExistantModelException, DuplicateModelException {
+//        JetEngine firstEngine = (JetEngine) this.database.getEngines().GetItem(firstEngineModel);
+//        SterndriveEngine secondEngine = (SterndriveEngine) this.database.getEngines().GetItem(secondEngineModel);
+//        MotorBoat boat = new MotorBoat(model, weight, 1, 1, 1, Arrays.asList(firstEngine), Arrays.asList(secondEngine), false);
+//        this.database.getBoats().Add(boat);
+//        return String.format("Power boat with model %s registered successfully.", model);
+//    }
+//
+//    public String CreateYacht(String model, int weight, String engineModel, int cargoWeight) throws NonExistantModelException, DuplicateModelException {
+//        JetEngine engine = (JetEngine) this.database.getEngines().GetItem(engineModel);
+//        MotorBoat boat = new MotorBoat(model, weight, 1, 1, cargoWeight, Arrays.asList(engine), new ArrayList<SterndriveEngine>(), false);
+//        this.database.getBoats().Add(boat);
+//        return String.format("Yacht with model %s registered successfully.", model);
+//    }
 
     public String OpenRace(int distance, int windSpeed, int oceanCurrentSpeed, Boolean allowsMotorboats) throws RaceAlreadyExistsException {
         Race race = new models.Race(distance, windSpeed, oceanCurrentSpeed, allowsMotorboats);

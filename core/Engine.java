@@ -1,5 +1,6 @@
 package core;
 
+import contracts.controllers.BoatSimulatorController;
 import contracts.controllers.CommandHandler;
 import contracts.io.Reader;
 import contracts.io.Writer;

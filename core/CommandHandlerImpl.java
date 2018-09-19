@@ -16,18 +16,6 @@ public class CommandHandlerImpl implements CommandHandler {
         this.setContrller(controller);
     }
 
-    public CommandHandlerImpl() {
-        this.setContrller(new BoatSimulatorControllerImpl());
-    }
-
-    public BoatSimulatorController getController() {
-        return this.controller;
-    }
-
-    private void setContrller(BoatSimulatorController controller) {
-        this.controller = controller;
-    }
-
     public String ExecuteCommand(String name, List<String> parameters) throws DuplicateModelException, NonExistantModelException, RaceAlreadyExistsException, NoSetRaceException, InsufficientContestantsException {
         switch (name) {
             case "CreateBoatEngine":
@@ -85,5 +73,13 @@ public class CommandHandlerImpl implements CommandHandler {
             default:
                 throw new IllegalArgumentException();
         }
+    }
+
+    public BoatSimulatorController getController() {
+        return this.controller;
+    }
+
+    private void setContrller(BoatSimulatorController controller) {
+        this.controller = controller;
     }
 }

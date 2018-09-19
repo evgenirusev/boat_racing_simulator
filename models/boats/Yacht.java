@@ -1,7 +1,5 @@
 package models.boats;
 
-import models.JetEngine;
-
 import java.util.List;
 
 public class Yacht extends PowerBoat {
