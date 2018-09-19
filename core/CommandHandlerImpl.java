@@ -1,30 +1,29 @@
-package Core;
+package core;
 
 import Utility.Constants;
-import contracts.IBoatSimulatorController;
-import contracts.ICommandHandler;
-import controllers.BoatSimulatorController;
+import contracts.BoatSimulatorController;
+import controllers.BoatSimulatorControllerImpl;
 import enumeration.EngineType;
 import exeptions.*;
 
 import java.util.List;
 
-public class CommandHandler implements ICommandHandler {
-    public IBoatSimulatorController controller;
+public class CommandHandlerImpl implements contracts.CommandHandler {
+    public BoatSimulatorController controller;
 
-    public CommandHandler(IBoatSimulatorController controller) {
+    public CommandHandlerImpl(BoatSimulatorController controller) {
         this.setContrller(controller);
     }
 
-    public CommandHandler() {
-        this.setContrller(new BoatSimulatorController());
+    public CommandHandlerImpl() {
+        this.setContrller(new BoatSimulatorControllerImpl());
     }
 
-    public IBoatSimulatorController getController() {
+    public BoatSimulatorController getController() {
         return this.controller;
     }
 
-    private void setContrller(IBoatSimulatorController controller) {
+    private void setContrller(BoatSimulatorController controller) {
         this.controller = controller;
     }
 

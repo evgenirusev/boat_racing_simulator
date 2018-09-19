@@ -1,14 +1,13 @@
 package database;
 
 import Utility.Constants;
-import contracts.IModelable;
-import contracts.IRepository;
+import contracts.Modelable;
 import exeptions.DuplicateModelException;
 import exeptions.NonExistantModelException;
 
 import java.util.HashMap;
 
-public class Repository<T extends IModelable> implements IRepository {
+public class Repository<T extends Modelable> implements contracts.Repository {
     private HashMap<String, T> itemsByModel;
 
     public Repository()
@@ -25,7 +24,7 @@ public class Repository<T extends IModelable> implements IRepository {
     }
 
     @Override
-    public void Add(IModelable item) throws DuplicateModelException {
+    public void Add(Modelable item) throws DuplicateModelException {
         if (this.itemsByModel.containsKey(item.getModel()))
         {
             throw new DuplicateModelException(Constants.DuplicateModelMessage);

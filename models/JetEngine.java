@@ -2,9 +2,9 @@ package models;
 
 import Utility.Constants;
 import Utility.Validator;
-import contracts.IModelable;
+import contracts.Modelable;
 
-public class JetEngine implements IModelable
+public class JetEngine implements Modelable
 {
     private static final int Multiplier = 5;
 

@@ -5,7 +5,7 @@ import models.MotorBoat;
 
 import java.util.List;
 
-public interface IRace
+public interface Race
 {
     int getDistance();
 

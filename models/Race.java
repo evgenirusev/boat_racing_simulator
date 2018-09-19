@@ -2,14 +2,13 @@ package models;
 
 import Utility.Constants;
 import Utility.Validator;
-import contracts.IRace;
 import exeptions.DuplicateModelException;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class Race implements IRace {
+public class Race implements contracts.Race {
     private int distance;
     private int windSpeed;
     private int oseanCurrentSpeed;

@@ -2,9 +2,9 @@ package models;
 
 import Utility.Constants;
 import Utility.Validator;
-import contracts.IModelable;
+import contracts.Modelable;
 
-public class SterndriveEngine implements IModelable
+public class SterndriveEngine implements Modelable
 {
     private static final int Multiplier = 7;
 

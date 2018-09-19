@@ -1,31 +1,29 @@
 package controllers;
 
 import Utility.Constants;
-import contracts.IBoatSimulatorController;
-import contracts.IModelable;
-import contracts.IRace;
+import contracts.Modelable;
+import contracts.Race;
 import database.BoatSimulatorDatabase;
 import enumeration.EngineType;
 import exeptions.*;
 import models.JetEngine;
 import models.MotorBoat;
-import models.Race;
 import models.SterndriveEngine;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import java.util.*;
 
-public class BoatSimulatorController implements IBoatSimulatorController {
+public class BoatSimulatorControllerImpl implements contracts.BoatSimulatorController {
     private LinkedHashMap<Double, MotorBoat> map;
     private BoatSimulatorDatabase database;
-    private IRace currentRace;
+    private Race currentRace;
 
-    public BoatSimulatorController(BoatSimulatorDatabase database, IRace currentRace) {
+    public BoatSimulatorControllerImpl(BoatSimulatorDatabase database, Race currentRace) {
         this.setDatabase(database);
         this.setCurrentRace(currentRace);
     }
 
-    public BoatSimulatorController() {
+    public BoatSimulatorControllerImpl() {
         this.setDatabase(new BoatSimulatorDatabase());
         this.setCurrentRace(null);
     }
@@ -46,16 +44,16 @@ public class BoatSimulatorController implements IBoatSimulatorController {
     }
 
     @Override
-    public IRace getCurrentRace() {
+    public Race getCurrentRace() {
         return this.currentRace;
     }
 
-    public void setCurrentRace(IRace currentRace) {
+    public void setCurrentRace(Race currentRace) {
         this.currentRace = currentRace;
     }
 
     public String CreateBoatEngine(String model, int horsepower, int displacement, EngineType engineType) throws DuplicateModelException {
-        IModelable engine;
+        Modelable engine;
         switch (engineType) {
             case Jet:
                 engine = new JetEngine(model, horsepower, displacement);
@@ -103,7 +101,7 @@ public class BoatSimulatorController implements IBoatSimulatorController {
     }
 
     public String OpenRace(int distance, int windSpeed, int oceanCurrentSpeed, Boolean allowsMotorboats) throws RaceAlreadyExistsException {
-        IRace race = new Race(distance, windSpeed, oceanCurrentSpeed, allowsMotorboats);
+        Race race = new models.Race(distance, windSpeed, oceanCurrentSpeed, allowsMotorboats);
         this.ValidateRaceIsEmpty();
         this.currentRace = race;
         return

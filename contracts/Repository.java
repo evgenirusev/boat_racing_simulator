@@ -3,7 +3,7 @@ package contracts;
 import exeptions.DuplicateModelException;
 import exeptions.NonExistantModelException;
 
-public interface IRepository<T extends IModelable> {
+public interface Repository<T extends Modelable> {
     void Add(T item) throws DuplicateModelException;
 
     T GetItem(String model) throws NonExistantModelException;
