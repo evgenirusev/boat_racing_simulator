@@ -1,18 +1,13 @@
 package controllers;
 
 import Utility.Constants;
-import contracts.Modelable;
 import contracts.controllers.BoatSimulatorController;
 import contracts.models.Boat;
+import contracts.models.BoatEngine;
 import contracts.models.Race;
-import core.Engine;
 import database.BoatSimulatorDatabase;
-import enumeration.EngineType;
 import exeptions.*;
 import factories.EngineFactory;
-import models.boats.RowBoat;
-import models.engines.JetEngine;
-import models.engines.SterndriveEngine;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import java.util.*;
@@ -38,8 +33,15 @@ public class BoatSimulatorControllerImpl implements BoatSimulatorController {
     }
 
     @Override
-    public String CreateBoatEngine(String model, int horsepower, int displacement, String engineType) {
-        return null;
+    public String CreateBoatEngine(String model, int horsepower, int displacement, String engineType) throws DuplicateModelException {
+        BoatEngine engine = EngineFactory.create(engineType.toString());
+
+        this.database.getEngines().Add(engine);
+        return String.format(
+                "Engine model %s with %s HP and displacement %s cm3 created successfully.",
+                model,
+                horsepower,
+                displacement);
     }
 
 
@@ -56,26 +58,9 @@ public class BoatSimulatorControllerImpl implements BoatSimulatorController {
         this.currentRace = currentRace;
     }
 
-    public String CreateBoatEngine(String model, int horsepower, int displacement, EngineType engineType) throws DuplicateModelException {
-        Engine engine = EngineFactory.create(engineType.toString());
-//        switch (engineType) {
-//            case Jet:
-//                engine = EngineFactory.create(engineType.toString());
-//                break;
-//            case Sterndrive:
-//                engine = new SterndriveEngine(model, horsepower, displacement);
-//                break;
-//            default:
-//                throw new NotImplementedException();
-//        }
-
-        this.database.getEngines().Add(engine);
-        return String.format(
-                "Engine model %s with %s HP and displacement %s cm3 created successfully.",
-                model,
-                horsepower,
-                displacement);
-    }
+//    public String CreateBoatCommand() {
+//
+//    }
 
 //    public String CreateRowBoat(String model, int weight, int oars) throws DuplicateModelException {
 //        Boat boat = new RowBoat(model, weight, 1, new ArrayList<Engine>(), new ArrayList<SterndriveEngine>(), false);
@@ -105,19 +90,20 @@ public class BoatSimulatorControllerImpl implements BoatSimulatorController {
 //    }
 
     public String OpenRace(int distance, int windSpeed, int oceanCurrentSpeed, Boolean allowsMotorboats) throws RaceAlreadyExistsException {
-        Race race = new models.Race(distance, windSpeed, oceanCurrentSpeed, allowsMotorboats);
-        this.ValidateRaceIsEmpty();
-        this.currentRace = race;
-        return
-                String.format(
-                        "A new race with distance %s meters, wind speed %sm/s and ocean current speed %s m/s has been set.",
-                        distance, windSpeed, oceanCurrentSpeed);
+//        Race race = new models.Race(distance, windSpeed, oceanCurrentSpeed, allowsMotorboats);
+//        this.ValidateRaceIsEmpty();
+//        this.currentRace = race;
+//        return
+//                String.format(
+//                        "A new race with distance %s meters, wind speed %sm/s and ocean current speed %s m/s has been set.",
+//                        distance, windSpeed, oceanCurrentSpeed);
+        return "";
     }
 
     public String SignUpBoat(String model) throws NonExistantModelException, DuplicateModelException, NoSetRaceException {
-        MotorBoat boat = this.database.getBoats().GetItem(model);
+        Boat boat = this.database.getBoats().GetItem(model);
         this.ValidateRaceIsSet();
-        if (!this.currentRace.getAllowsMotorboats() && boat instanceof MotorBoat) {
+        if (!this.currentRace.getAllowsMotorboats() && boat instanceof Boat) {
             throw new IllegalArgumentException(Constants.IncorrectBoatTypeMessage);
         }
         this.currentRace.AddParticipant(boat);
@@ -126,18 +112,18 @@ public class BoatSimulatorControllerImpl implements BoatSimulatorController {
 
     public String StartRace() throws InsufficientContestantsException, NoSetRaceException {
         this.ValidateRaceIsSet();
-        List<MotorBoat> participants = this.currentRace.GetParticipants();
+        List<Boat> participants = this.currentRace.GetParticipants();
         if (participants.size() < 3) {
             throw new InsufficientContestantsException(Constants.InsufficientContestantsMessage);
         }
 
 
-        for (int i = 0; i < 3; i++) {
-            FindFastest(participants);
-        }
+//        for (int i = 0; i < 3; i++) {
+//            FindFastest(participants);
+//        }
 
         StringBuilder result = new StringBuilder();
-        for (Map.Entry<Double, MotorBoat> doubleMotorBoatEntry : map.entrySet()) {
+        for (Map.Entry<Double, Boat> doubleMotorBoatEntry : map.entrySet()) {
             result.append(String.format("First place: %s Model: %s Time: %s",
                     doubleMotorBoatEntry.getValue().getClass().getSimpleName().toString(),
                     doubleMotorBoatEntry.getValue().getModel(),
@@ -166,16 +152,16 @@ public class BoatSimulatorControllerImpl implements BoatSimulatorController {
         throw new NotImplementedException();
     }
 
-    private void FindFastest(List<MotorBoat> participants) {
+    private void FindFastest(List<Boat> participants) {
         Double bestTime = 0.0;
-        MotorBoat winner = null;
-        for (MotorBoat participant : participants) {
-            Double speed = participant.CalculateRaceSpeed(this.currentRace);
-            Double time = this.currentRace.getDistance() / speed;
-            if (time < bestTime) {
-                bestTime = time;
-                winner = participant;
-            }
+        Boat winner = null;
+        for (Boat participant : participants) {
+//            Double speed = participant.CalculateRaceSpeed(this.currentRace);
+//            Double time = this.currentRace.getDistance() / speed;
+//            if (time < bestTime) {
+//                bestTime = time;
+//                winner = participant;
+//            }
         }
 
         map.put(bestTime, winner);

@@ -1,78 +1,75 @@
 package core;
 
-import Utility.Constants;
+import annotations.Inject;
+import contracts.Executable;
 import contracts.controllers.BoatSimulatorController;
 import contracts.controllers.CommandHandler;
-import controllers.BoatSimulatorControllerImpl;
-import enumeration.EngineType;
 import exeptions.*;
 
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 
 public class CommandHandlerImpl implements CommandHandler {
+    private String COMMAND_PATH = "commands.";
+    private static final String COMMAND_SUFFIX_NAME = "Command";
+
     public BoatSimulatorController controller;
 
     public CommandHandlerImpl(BoatSimulatorController controller) {
         this.setContrller(controller);
     }
 
-    public String ExecuteCommand(String name, List<String> parameters) throws DuplicateModelException, NonExistantModelException, RaceAlreadyExistsException, NoSetRaceException, InsufficientContestantsException {
-        switch (name) {
-            case "CreateBoatEngine":
-                EngineType engineType;
-                if (parameters.get(3).equals("Jet")) {
-                    return this.getController().CreateBoatEngine(
-                            parameters.get(0),
-                            Integer.parseInt(parameters.get(1)),
-                            Integer.parseInt(parameters.get(2)),
-                            "Jet");
-                } else if (parameters.get(3).equals("Sterndrive")) {
-                    return this.getController().CreateBoatEngine(
-                            parameters.get(0),
-                            Integer.parseInt(parameters.get(1)),
-                            Integer.parseInt(parameters.get(2)),
-                            "Sterndrive");
-                }
+    public String parseCommandName(String commandName) {
+        if (commandName.contains("SignUp")) { return "SignUpBoat"; }
+        if (commandName.contains("Engine")) { return "CreateBoatEngine"; }
+        if (commandName.contains("Boat") || commandName.contains("Yacht")) { return "CreateBoat"; }
+        return commandName;
+    }
 
-                throw new IllegalArgumentException(Constants.IncorrectEngineTypeMessage);
+    public String ExecuteCommand(String commandName, List<String> parameters) throws DuplicateModelException, NonExistantModelException, RaceAlreadyExistsException, NoSetRaceException, InsufficientContestantsException {
+        try {
+            String commandClassName = this.parseCommandName(commandName);
+            Class<?> commandClass = Class.forName(COMMAND_PATH + commandClassName + COMMAND_SUFFIX_NAME);
+            Constructor<?> declaredConstructor = commandClass.getDeclaredConstructor();
+            Executable command = (Executable) declaredConstructor.newInstance();
 
-            case "CreateRowBoat":
-                return this.getController().CreateRowBoat(
-                        parameters.get(0),
-                        Integer.parseInt(parameters.get(1)),
-                        Integer.parseInt(parameters.get(2)));
-            case "CreateSailBoat":
-                return this.getController().CreateSailBoat(
-                        parameters.get(0),
-                        Integer.parseInt(parameters.get(1)),
-                        Integer.parseInt(parameters.get(2)));
-            case "CreatePowerBoat":
-                return this.getController().CreatePowerBoat(
-                        parameters.get(0),
-                        Integer.parseInt(parameters.get(1)),
-                        parameters.get(2),
-                        parameters.get(3));
-            case "CreateYacht":
-                return this.getController().CreateYacht(
-                        parameters.get(0),
-                        Integer.parseInt(parameters.get(1)),
-                        parameters.get(2),
-                        Integer.parseInt(parameters.get(3)));
-            case "OpenRace":
-                return this.getController().OpenRace(
-                        Integer.parseInt(parameters.get(0)),
-                        Integer.parseInt(parameters.get(1)),
-                        Integer.parseInt(parameters.get(2)),
-                        Boolean.parseBoolean(parameters.get(3)));
-            case "SignUpBoat":
-                return this.getController().SignUpBoat(parameters.get(0));
-            case "StartRace":
-                return this.getController().StartRace();
-            case "GetStatistic":
-                return this.getController().GetStatistic();
-            default:
-                throw new IllegalArgumentException();
+            this.injectDependencies(command);
+
+            return command.execute();
+
+        } catch (ClassNotFoundException |
+                NoSuchMethodException |
+                IllegalAccessException |
+                InstantiationException |
+                InvocationTargetException e) {
+            throw new RuntimeException("Invalid command!");
         }
+    }
+
+    private <T> void injectDependencies(T command) throws IllegalAccessException {
+        Field[] commandFields = command
+                .getClass()
+                .getDeclaredFields();
+        Field[] handlerFields = this
+                .getClass()
+                .getDeclaredFields();
+
+        for (Field commandField : commandFields) {
+            commandField.setAccessible(true);
+            if (commandField.isAnnotationPresent(Inject.class)) {
+                for (Field handlerField : handlerFields) {
+                    handlerField.setAccessible(true);
+                    if (commandField.getType().getSimpleName().equals(handlerField.getType().getSimpleName())
+                            && commandField.getType().equals(handlerField.getType()))
+                    {
+                        commandField.set(command, handlerField.get(this));
+                    }
+                }
+            }
+        }
+
     }
 
     public BoatSimulatorController getController() {

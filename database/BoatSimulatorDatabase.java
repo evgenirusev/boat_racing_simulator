@@ -1,11 +1,12 @@
 package database;
 
-import contracts.Modelable;
-import contracts.Repository;
+import contracts.database.Repository;
+import contracts.models.Boat;
+import contracts.models.BoatEngine;
 
 public class BoatSimulatorDatabase {
-    Repository<MotorBoat> boats;
-    Repository<Modelable> engines;
+    Repository<Boat> boats;
+    Repository<BoatEngine> engines;
 
     public BoatSimulatorDatabase()
     {
@@ -13,19 +14,19 @@ public class BoatSimulatorDatabase {
         this.setEngines(new database.Repository());
     }
 
-    public Repository<MotorBoat> getBoats() {
+    public Repository<Boat> getBoats() {
         return this.boats;
     }
 
-    private void setBoats(Repository<MotorBoat> boats) {
+    private void setBoats(Repository<Boat> boats) {
         this.boats = boats;
     }
 
-    public Repository<Modelable> getEngines() {
+    public Repository<BoatEngine> getEngines() {
         return this.engines;
     }
 
-    private void setEngines(Repository<Modelable> engines) {
+    private void setEngines(Repository<BoatEngine> engines) {
         this.engines = engines;
     }
 }

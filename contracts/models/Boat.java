@@ -1,8 +1,6 @@
 package contracts.models;
 
-import Utility.Validator;
-
-public interface Boat {
+public interface Boat extends Modelable {
 
     public void setWeight(int weight);
 

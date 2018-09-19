@@ -1,5 +1,6 @@
-package contracts;
+package contracts.database;
 
+import contracts.models.Modelable;
 import exeptions.DuplicateModelException;
 import exeptions.NonExistantModelException;
 

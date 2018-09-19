@@ -1,9 +1,8 @@
 package models.engines;
 
-import contracts.Modelable;
 import contracts.models.BoatEngine;
 
-public abstract class BaseEngine implements BoatEngine, Modelable {
+public abstract class BaseEngine implements BoatEngine {
     private String model;
     private int output;
     private int displacement;

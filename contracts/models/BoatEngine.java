@@ -1,6 +1,6 @@
 package contracts.models;
 
-public interface BoatEngine {
+public interface BoatEngine extends Modelable {
     int getDisplacement();
 
     public int getHorsepower();

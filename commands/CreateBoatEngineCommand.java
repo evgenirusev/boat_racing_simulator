@@ -1,4 +1,12 @@
 package commands;
 
-public class CreateBoatEngine {
+import contracts.Executable;
+
+public class CreateBoatEngineCommand implements Executable {
+
+    @Override
+    public String execute() {
+
+        return "CreateBoatEngineCommand";
+    }
 }
