@@ -1,6 +1,6 @@
 package controllers;
 
-import Utility.Constants;
+import utility.Constants;
 import contracts.controllers.BoatSimulatorController;
 import contracts.models.Boat;
 import contracts.models.BoatEngine;
@@ -12,7 +12,6 @@ import models.boats.PowerBoat;
 import models.boats.RowBoat;
 import models.boats.SailBoat;
 import models.boats.Yacht;
-import models.engines.JetEngine;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import java.util.*;
@@ -38,15 +37,13 @@ public class BoatSimulatorControllerImpl implements BoatSimulatorController {
     }
 
     @Override
-    public String CreateBoatEngine(String model, int horsepower, int displacement, String engineType) throws DuplicateModelException {
-        BoatEngine engine = EngineFactory.create(engineType.toString());
+    public String createBoatEngine(String model, int horsepower, int displacement, String engineType) throws DuplicateModelException {
+        BoatEngine engine = EngineFactory.create(engineType, model, horsepower, displacement);
 
         this.database.getEngines().Add(engine);
         return String.format(
                 "Engine model %s with %s HP and displacement %s cm3 created successfully.",
-                model,
-                horsepower,
-                displacement);
+                model, horsepower, displacement);
     }
 
 

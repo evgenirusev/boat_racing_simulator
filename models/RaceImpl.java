@@ -1,7 +1,7 @@
 package models;
 
-import Utility.Constants;
-import Utility.Validator;
+import utility.Constants;
+import utility.Validator;
 import contracts.models.Boat;
 import contracts.models.Race;
 import exeptions.DuplicateModelException;

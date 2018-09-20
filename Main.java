@@ -1,6 +1,4 @@
 
-import contracts.controllers.BoatSimulatorController;
-import contracts.database.Repository;
 import contracts.io.Reader;
 import contracts.io.Writer;
 import controllers.BoatSimulatorControllerImpl;

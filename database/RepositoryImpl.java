@@ -1,16 +1,16 @@
 package database;
 
-import Utility.Constants;
+import utility.Constants;
 import contracts.models.Modelable;
 import exeptions.DuplicateModelException;
 import exeptions.NonExistantModelException;
 
 import java.util.HashMap;
 
-public class Repository<T extends Modelable> implements contracts.database.Repository {
+public class RepositoryImpl<T extends Modelable> implements contracts.database.Repository {
     private HashMap<String, T> itemsByModel;
 
-    public Repository()
+    public RepositoryImpl()
     {
         this.setItemsByModel(new HashMap<String, T>());
     }

@@ -1,7 +1,6 @@
 package models.boats;
 
-import Utility.Constants;
-import Utility.Validator;
+import utility.Validator;
 import contracts.models.Boat;
 
 public abstract class BaseBoat implements Boat {

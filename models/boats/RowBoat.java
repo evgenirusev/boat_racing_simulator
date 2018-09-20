@@ -1,6 +1,6 @@
 package models.boats;
 
-import Utility.Validator;
+import utility.Validator;
 import contracts.models.Race;
 
 public class RowBoat extends BaseBoat {

@@ -20,7 +20,6 @@ public class CreateBoatCommand implements Executable {
 
     @Override
     public String execute() throws DuplicateModelException, NonExistantModelException {
-        
         switch(commandName) {
             case "CreateRowBoat":
                 return controller.createRowBoat(data[0], Integer.parseInt(data[1]), Integer.parseInt(data[2]));
