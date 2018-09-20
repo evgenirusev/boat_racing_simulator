@@ -1,12 +1,18 @@
 package commands;
 
+import annotations.Inject;
 import contracts.Executable;
+import controllers.BoatSimulatorControllerImpl;
+import exeptions.InsufficientContestantsException;
+import exeptions.NoSetRaceException;
 
 public class StartRaceCommand implements Executable {
 
-    @Override
-    public String execute() {
+    @Inject
+    private BoatSimulatorControllerImpl controller;
 
-        return "StartRaceCommand";
+    @Override
+    public String execute() throws InsufficientContestantsException, NoSetRaceException {
+        return controller.startRace();
     }
 }

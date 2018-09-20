@@ -17,12 +17,15 @@ import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 import java.util.*;
 
 public class BoatSimulatorControllerImpl implements BoatSimulatorController {
-    private LinkedHashMap<Double, Boat> map;
     private BoatSimulatorDatabase database;
     private Race currentRace;
+    private Map<Boat, Double> finishedBoats;
+    private Map<Boat, Double> unFinishedBoats;
 
     public BoatSimulatorControllerImpl(BoatSimulatorDatabase database) {
         this.database = database;
+        this.finishedBoats = new LinkedHashMap<>();
+        this.unFinishedBoats = new LinkedHashMap<>();
     }
 
     @Override
@@ -96,7 +99,7 @@ public class BoatSimulatorControllerImpl implements BoatSimulatorController {
         if (!this.currentRace.getAllowsMotorboats() && boat instanceof Boat) {
             throw new IllegalArgumentException(Constants.IncorrectBoatTypeMessage);
         }
-        this.currentRace.AddParticipant(boat);
+        this.currentRace.addParticipant(boat);
         return String.format("Boat with model %s has signed up for the current Race.", model);
     }
 
@@ -107,22 +110,44 @@ public class BoatSimulatorControllerImpl implements BoatSimulatorController {
             throw new InsufficientContestantsException(Constants.InsufficientContestantsMessage);
         }
 
+        findFastest(participants);
 
-//        for (int i = 0; i < 3; i++) {
-//            FindFastest(participants);
-//        }
+        String[] places = {"First", "Second", "Third"};
+        final int[] index = {0};
 
         StringBuilder result = new StringBuilder();
-        for (Map.Entry<Double, Boat> doubleMotorBoatEntry : map.entrySet()) {
-            result.append(String.format("First place: %s Model: %s Time: %s",
-                    doubleMotorBoatEntry.getValue().getClass().getSimpleName().toString(),
-                    doubleMotorBoatEntry.getValue().getModel(),
-                    isFinished(doubleMotorBoatEntry.getKey())));
+
+        this.finishedBoats
+                .entrySet()
+                .stream()
+                .sorted(Comparator.comparing(Map.Entry::getValue))
+                .forEach(boat -> {
+                    if (index[0] < 3) {
+                        result.append(String.format("%s place: %s Model: %s Time: %s",
+                                places[index[0]++],
+                                boat.getKey().getClass().getSimpleName(),
+                                boat.getKey().getModel(),
+                                this.isFinished(boat.getValue())))
+                                .append(System.lineSeparator());
+                    }
+                });
+
+        for (Map.Entry<Boat, Double> doubleBoatEntry : this.unFinishedBoats.entrySet()) {
+            if (index[0] == 3) {
+                break;
+            }
+            result.append(String.format("%s place: %s Model: %s Time: Did not finish!",
+                    places[index[0]++],
+                    doubleBoatEntry.getKey().getClass().getSimpleName(),
+                    doubleBoatEntry.getKey().getModel()))
+                    .append(System.lineSeparator());
         }
 
         this.currentRace = null;
+        this.finishedBoats.clear();
+        this.unFinishedBoats.clear();
 
-        return result.toString();
+        return result.toString().trim();
     }
 
     private String isFinished(Double key) {
@@ -138,20 +163,21 @@ public class BoatSimulatorControllerImpl implements BoatSimulatorController {
         throw new NotImplementedException();
     }
 
-    private void findFastest(List<Boat> participants) {
-        Double bestTime = 0.0;
-        Boat winner = null;
+    private void findFastest(Collection<Boat> participants) {
         for (Boat participant : participants) {
-//            Double speed = participant.CalculateRaceSpeed(this.currentRace);
-//            Double time = this.currentRace.getDistance() / speed;
-//            if (time < bestTime) {
-//                bestTime = time;
-//                winner = participant;
-//            }
+            Double speed = participant.calculateRaceSpeed(this.currentRace);
+            Double time = this.currentRace.getDistance() / speed;
+
+            if (time <= 0) {
+                this.unFinishedBoats.put(participant, time);
+            } else {
+                this.finishedBoats.put(participant, time);
+            }
         }
 
-        map.put(bestTime, winner);
-        participants.remove(winner);
+        if (this.finishedBoats.size() >= 3) {
+            this.unFinishedBoats.clear();
+        }
     }
 
     private void validateRaceIsSet() throws NoSetRaceException {

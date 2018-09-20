@@ -1,6 +1,8 @@
 package models.boats;
 
 import contracts.models.BoatEngine;
+import contracts.models.Race;
+
 import java.util.Collections;
 import java.util.List;
 
@@ -18,5 +20,11 @@ public class PowerBoat extends BaseBoat {
 
     public void setEngines(List<BoatEngine> engines) {
         this.engines = engines;
+    }
+
+    @Override
+    public Double calculateRaceSpeed(Race race) {
+        return ((double)(engines.get(0).getOutput()) + (double)(engines.get(1).getOutput())) - (double)getWeight()
+                + ((double)(race.getOceanCurrentSpeed()) / 5);
     }
 }

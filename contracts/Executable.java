@@ -1,9 +1,7 @@
 package contracts;
 
-import exeptions.DuplicateModelException;
-import exeptions.NonExistantModelException;
-import exeptions.RaceAlreadyExistsException;
+import exeptions.*;
 
 public interface Executable {
-    String execute() throws DuplicateModelException, NonExistantModelException, RaceAlreadyExistsException;
+    String execute() throws DuplicateModelException, NonExistantModelException, RaceAlreadyExistsException, NoSetRaceException, InsufficientContestantsException;
 }

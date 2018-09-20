@@ -1,5 +1,6 @@
 package models.boats;
 
+import contracts.models.Race;
 import utility.Validator;
 import contracts.models.Boat;
 
@@ -28,4 +29,6 @@ public abstract class BaseBoat implements Boat {
     public int getWeight() {
         return weight;
     }
+
+    public abstract Double calculateRaceSpeed(Race race);
 }

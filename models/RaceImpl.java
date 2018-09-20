@@ -64,7 +64,7 @@ public class RaceImpl implements Race {
         this.allowsMotorBoats = allowsMotorBoats;
     }
 
-    public void AddParticipant(Boat boat) throws DuplicateModelException {
+    public void addParticipant(Boat boat) throws DuplicateModelException {
         if (this.registeredBoats.containsKey(boat.getModel())) {
             throw new DuplicateModelException(Constants.DuplicateModelMessage);
         }

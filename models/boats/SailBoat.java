@@ -15,6 +15,11 @@ public class SailBoat extends BaseBoat {
         super(model, weight);
     }
 
+    @Override
+    public Double calculateRaceSpeed(Race race) {
+        return (double)(race.getWindSpeed() * (getSailEfficiency() / 100) - getWeight() + race.getOceanCurrentSpeed());
+    }
+
     public int getSailEfficiency() {
         return sailEfficiency;
     }
@@ -22,10 +27,5 @@ public class SailBoat extends BaseBoat {
     public void setSailEfficiency(int oars) {
         Validator.ValidatePropertyValue(oars, "Oars");
         this.sailEfficiency = oars;
-    }
-
-    public double CalculateRaceSpeed(Race race) {
-
-        return 0;
     }
 }

@@ -24,6 +24,11 @@ public class RowBoat extends BaseBoat {
 
         return 0;
     }
+
+    @Override
+    public Double calculateRaceSpeed(Race race) {
+        return (double)((oars * 100) - getWeight() + race.getOceanCurrentSpeed());
+    }
 }
 
 
