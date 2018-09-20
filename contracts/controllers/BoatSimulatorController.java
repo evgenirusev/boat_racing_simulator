@@ -11,11 +11,11 @@ public interface BoatSimulatorController {
 
     String createBoatEngine(String model, int horsepower, int displacement, String engineType) throws DuplicateModelException;
 
-    String OpenRace(int distance, int windSpeed, int oceanCurrentSpeed, Boolean allowsMotorboats) throws RaceAlreadyExistsException;
+    String openRace(int distance, int windSpeed, int oceanCurrentSpeed, Boolean allowsMotorboats) throws RaceAlreadyExistsException;
 
-    String SignUpBoat(String model) throws NonExistantModelException, DuplicateModelException, NoSetRaceException;
+    String signUpBoat(String model) throws NonExistantModelException, DuplicateModelException, NoSetRaceException;
 
-    String StartRace() throws InsufficientContestantsException, NoSetRaceException;
+    String startRace() throws InsufficientContestantsException, NoSetRaceException;
 
-    String GetStatistic();
+    String getStatistic();
 }

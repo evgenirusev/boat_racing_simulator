@@ -21,14 +21,8 @@ public class BoatSimulatorControllerImpl implements BoatSimulatorController {
     private BoatSimulatorDatabase database;
     private Race currentRace;
 
-    public BoatSimulatorControllerImpl(BoatSimulatorDatabase database, Race currentRace) {
-        this.setDatabase(database);
-        this.setCurrentRace(currentRace);
-    }
-
-    public BoatSimulatorControllerImpl() {
-        this.setDatabase(new BoatSimulatorDatabase());
-        this.setCurrentRace(null);
+    public BoatSimulatorControllerImpl(BoatSimulatorDatabase database) {
+        this.database = database;
     }
 
     @Override
@@ -40,7 +34,7 @@ public class BoatSimulatorControllerImpl implements BoatSimulatorController {
     public String createBoatEngine(String model, int horsepower, int displacement, String engineType) throws DuplicateModelException {
         BoatEngine engine = EngineFactory.create(engineType, model, horsepower, displacement);
 
-        this.database.getEngines().Add(engine);
+        this.database.getEngines().add(engine);
         return String.format(
                 "Engine model %s with %s HP and displacement %s cm3 created successfully.",
                 model, horsepower, displacement);
@@ -62,45 +56,43 @@ public class BoatSimulatorControllerImpl implements BoatSimulatorController {
 
     public String createRowBoat(String model, int weight, int oars) throws DuplicateModelException {
         Boat boat = new RowBoat(model, weight, oars);
-        this.database.getBoats().Add(boat);
+        this.database.getBoats().add(boat);
         return String.format("Row boat with model %s registered successfully.", model);
     }
 
     public String createSailBoat(String model, int weight, int sailEfficiency) throws DuplicateModelException {
         Boat boat = new SailBoat(model, weight, sailEfficiency);
-        this.database.getBoats().Add(boat);
+        this.database.getBoats().add(boat);
         return String.format("Sail boat with model %s registered successfully.", model);
     }
 
     public String createPowerBoat(String model, int weight, String firstEngineModel, String secondEngineModel) throws NonExistantModelException, DuplicateModelException {
-        BoatEngine firstEngine = this.database.getEngines().GetItem(firstEngineModel);
-        BoatEngine secondEngine = this.database.getEngines().GetItem(secondEngineModel);
+        BoatEngine firstEngine = this.database.getEngines().getItem(firstEngineModel);
+        BoatEngine secondEngine = this.database.getEngines().getItem(secondEngineModel);
         Boat boat = new PowerBoat(model, weight, new ArrayList<BoatEngine>(){{ add(firstEngine); add(secondEngine); }});
-        this.database.getBoats().Add(boat);
+        this.database.getBoats().add(boat);
         return String.format("Power boat with model %s registered successfully.", model);
     }
 
     public String createYacht(String model, int weight, String engineModel, int cargoWeight) throws NonExistantModelException, DuplicateModelException {
-        BoatEngine engine = this.database.getEngines().GetItem(engineModel);
+        BoatEngine engine = this.database.getEngines().getItem(engineModel);
         Boat boat = new Yacht(model, weight, new ArrayList<BoatEngine>(){{ add(engine);}}, cargoWeight);
-        this.database.getBoats().Add(boat);
+        this.database.getBoats().add(boat);
         return String.format("Yacht with model %s registered successfully.", model);
     }
 
-    public String OpenRace(int distance, int windSpeed, int oceanCurrentSpeed, Boolean allowsMotorboats) throws RaceAlreadyExistsException {
-//        Race race = new models.Race(distance, windSpeed, oceanCurrentSpeed, allowsMotorboats);
-//        this.ValidateRaceIsEmpty();
-//        this.currentRace = race;
-//        return
-//                String.format(
-//                        "A new race with distance %s meters, wind speed %sm/s and ocean current speed %s m/s has been set.",
-//                        distance, windSpeed, oceanCurrentSpeed);
-        return "";
+    public String openRace(int distance, int windSpeed, int oceanCurrentSpeed, Boolean allowsMotorboats) throws RaceAlreadyExistsException {
+        Race race = new models.RaceImpl(distance, windSpeed, oceanCurrentSpeed, allowsMotorboats);
+        this.validateRaceIsEmpty();
+        this.currentRace = race;
+        return String.format(
+                        "A new race with distance %s meters, wind speed %sm/s and ocean current speed %s m/s has been set.",
+                        distance, windSpeed, oceanCurrentSpeed);
     }
 
-    public String SignUpBoat(String model) throws NonExistantModelException, DuplicateModelException, NoSetRaceException {
-        Boat boat = this.database.getBoats().GetItem(model);
-        this.ValidateRaceIsSet();
+    public String signUpBoat(String model) throws NonExistantModelException, DuplicateModelException, NoSetRaceException {
+        Boat boat = this.database.getBoats().getItem(model);
+        this.validateRaceIsSet();
         if (!this.currentRace.getAllowsMotorboats() && boat instanceof Boat) {
             throw new IllegalArgumentException(Constants.IncorrectBoatTypeMessage);
         }
@@ -108,8 +100,8 @@ public class BoatSimulatorControllerImpl implements BoatSimulatorController {
         return String.format("Boat with model %s has signed up for the current Race.", model);
     }
 
-    public String StartRace() throws InsufficientContestantsException, NoSetRaceException {
-        this.ValidateRaceIsSet();
+    public String startRace() throws InsufficientContestantsException, NoSetRaceException {
+        this.validateRaceIsSet();
         List<Boat> participants = this.currentRace.GetParticipants();
         if (participants.size() < 3) {
             throw new InsufficientContestantsException(Constants.InsufficientContestantsMessage);
@@ -141,16 +133,12 @@ public class BoatSimulatorControllerImpl implements BoatSimulatorController {
     }
 
     @Override
-    public String GetStatistic() {
-        return null;
-    }
-
     public String getStatistic() {
         //TODO Bonus Task Implement me
         throw new NotImplementedException();
     }
 
-    private void FindFastest(List<Boat> participants) {
+    private void findFastest(List<Boat> participants) {
         Double bestTime = 0.0;
         Boat winner = null;
         for (Boat participant : participants) {
@@ -166,13 +154,13 @@ public class BoatSimulatorControllerImpl implements BoatSimulatorController {
         participants.remove(winner);
     }
 
-    private void ValidateRaceIsSet() throws NoSetRaceException {
+    private void validateRaceIsSet() throws NoSetRaceException {
         if (this.currentRace == null) {
             throw new NoSetRaceException(Constants.NoSetRaceMessage);
         }
     }
 
-    private void ValidateRaceIsEmpty() throws RaceAlreadyExistsException {
+    private void validateRaceIsEmpty() throws RaceAlreadyExistsException {
         if (this.currentRace != null) {
             throw new RaceAlreadyExistsException(Constants.RaceAlreadyExistsMessage);
         }

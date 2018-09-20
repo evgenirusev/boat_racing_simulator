@@ -8,9 +8,6 @@ import exeptions.DuplicateModelException;
 public class CreateBoatEngineCommand implements Executable {
 
     @Inject
-    private String commandName;
-
-    @Inject
     private String[] data;
 
     @Inject

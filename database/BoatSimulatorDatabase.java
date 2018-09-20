@@ -8,10 +8,10 @@ public class BoatSimulatorDatabase {
     Repository<Boat> boats;
     Repository<BoatEngine> engines;
 
-    public BoatSimulatorDatabase()
+    public BoatSimulatorDatabase(Repository<BoatEngine> enginesRepository, Repository<Boat> boatRepository)
     {
-        this.setBoats(new RepositoryImpl());
-        this.setEngines(new RepositoryImpl());
+        this.boats = boatRepository;
+        this.engines = enginesRepository;
     }
 
     public Repository<Boat> getBoats() {
